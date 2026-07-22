@@ -1,0 +1,186 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: var(--color-text);
+}
+
+.modal-content h2 {
+  font-size: 1.8em;
+  color: var(--color-text);
+  margin: 0 0 10px 0;
+}
+
+.modal-severity {
+  font-size: 1.1em;
+  color: var(--color-text-secondary);
+  margin: 0 0 25px 0;
+}
+
+.modal-section {
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.modal-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.modal-section h3 {
+  font-size: 1.2em;
+  color: var(--color-text);
+  margin: 0 0 15px 0;
+}
+
+.modal-section p {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0 0 10px 0;
+}
+
+.wcag-code {
+  background-color: #F8F9FA;
+  padding: 10px;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  color: var(--color-primary);
+  font-size: 0.95em;
+}
+
+.wcag-code code {
+  font-weight: 600;
+}
+
+.elements-list {
+  list-style: none;
+  padding: 0;
+}
+
+.elements-list li {
+  background-color: #f8f9fa;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border-left: 3px solid var(--color-primary);
+  word-break: break-word;
+}
+
+.elements-list li code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.element-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.element-type {
+  font-family: 'Courier New', monospace;
+  color: var(--color-text);
+  font-size: 0.95em;
+}
+
+.element-issue {
+  margin: 0;
+  font-size: 0.85em;
+  color: #555;
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+.element-severity {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.75em;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.element-severity.severity-critical {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.element-severity.severity-serious {
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
+.element-severity.severity-medium {
+  background-color: #fffde7;
+  color: #f57f17;
+}
+
+.more-items {
+  background-color: #f5f5f5 !important;
+  color: var(--color-text-secondary) !important;
+  font-weight: 600;
+  border-left-color: #bdbdbd !important;
+}
+
+.empty-state {
+  background-color: #f0f8f0 !important;
+  border-left-color: #4caf50 !important;
+  padding: 20px !important;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.empty-state p {
+  margin: 0;
+  color: #2e7d32;
+}
+
+.empty-state.success {
+  background-color: #e8f5e9 !important;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 30px 20px;
+  }
+}

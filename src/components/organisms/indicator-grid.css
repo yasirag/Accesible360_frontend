@@ -1,0 +1,22 @@
+.indicator-grid-section {
+  margin-bottom: 40px;
+}
+
+.indicator-grid-section__title {
+  font-size: 1.5em;
+  color: var(--color-text);
+  margin-bottom: 25px;
+  margin-top: 0;
+}
+
+.indicator-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .indicator-grid {
+    grid-template-columns: 1fr;
+  }
+}

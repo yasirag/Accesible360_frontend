@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Landing from "./components/landing/Landing.jsx";
-import Loading from "./components/loading/Loading.jsx";
-import Results from "./components/results/Results.jsx";
+import Landing from "./pages/landing/landing";
+import Loading from "./components/loading/loading";
+import AuditReport from "./pages/auditReport/AuditReport";
 import Header from "./components/header/header";
 import "./App.css";
 
@@ -43,7 +43,7 @@ function App() {
       {screen === "landing" && <Landing onAudit={handleAudit} error={error} />}
       {screen === "loading" && <Loading />}
       {screen === "results" && auditData && (
-        <Results
+        <AuditReport
           data={auditData}
           onNewAudit={() => {
             setScreen("landing");

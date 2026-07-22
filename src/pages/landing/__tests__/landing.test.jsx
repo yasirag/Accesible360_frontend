@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
-import Landing from '../landing/landing'
+import Landing from '../landing'
 
 describe('Landing Component', () => {
   it('renderiza el título', () => {

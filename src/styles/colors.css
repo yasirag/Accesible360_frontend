@@ -1,42 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;900&display=swap');
-
-/* Paleta Global */
 :root {
-  /* Primarios */
   --color-primary: #004AC6;        /* Azul */
   --color-accent: #FFC107;         /* Amarillo */
   
-  /* Por indicador */
+
   --color-forms: #16A34A;          /* Verde */
   --color-links: #CA8A04;          /* Amarillo oscuro */
   --color-headings: #CA8A04;       /* Amarillo oscuro */
-  
-  /* Severidad */
+
   --color-critical: #BA1A1A;       /* Rojo */
   --color-serious: #EAB308;        /* Amarillo */
   --color-medium: #EAB308;         /* Amarillo */
   
-  /* Neutral */
+
   --color-background: #FAF8FF;     /* Gris muy claro */
   --color-border: #C3C6D7;         /* Gris */
   --color-text: #131B2E;           /* Gris oscuro */
   --color-text-secondary: #434655; /* Gris medio */
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f7fa;
-}
-
-#root {
-  width: 100%;
-  min-height: 100vh;
 }

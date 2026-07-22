@@ -5,7 +5,7 @@ function Loading() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Simular progreso de 0 a 95% (se completa cuando llegue resultado)
+   
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 95) return 95;

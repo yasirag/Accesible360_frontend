@@ -11,7 +11,7 @@ function Landing({ onAudit, error }) {
       return false;
     }
 
-    // Aceptar https://ejemplo.com o ejemplo.com
+   
     const urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
     if (!urlPattern.test(value)) {
       setInputError('La URL no es válida. Usa https://ejemplo.com');
