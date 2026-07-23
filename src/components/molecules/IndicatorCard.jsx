@@ -1,4 +1,3 @@
-import Badge from '../atoms/Badge';
 import ProgressBar from '../atoms/ProgressBar';
 import './indicator-card.css';
 
@@ -18,7 +17,7 @@ function IndicatorCard({ icon, title, score, violations, color, onClick }) {
         {violations === 0 ? '✅ Sin problemas' : `${violations} problemas`}
       </p>
 
-      <ProgressBar value={score} color={color} />
+      <ProgressBar value={score} />
     </div>
   );
 }
