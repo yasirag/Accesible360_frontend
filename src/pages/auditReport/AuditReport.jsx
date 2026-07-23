@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import ScoreCard from '../../components/molecules/ScoreCard';
-import IndicatorGrid from '../../components/organisms/IndicatorGrid';
-import IndicatorModal from '../../components/organisms/IndicatorModal';
-import './audit-report.css';
+import { useState } from "react";
+import ScoreCard from "../../components/molecules/ScoreCard";
+import IndicatorGrid from "../../components/organisms/IndicatorGrid";
+import TopProblems from "../../components/organisms/TopProblems";
+import DownloadPanel from "../../components/organisms/DownloadPanel";
+import IndicatorModal from "../../components/organisms/IndicatorModal";
+import "./audit-report.css";
 
 function AuditReport({ data, onNewAudit }) {
   const [selectedIndicator, setSelectedIndicator] = useState(null);
@@ -18,14 +20,26 @@ function AuditReport({ data, onNewAudit }) {
           </button>
         </div>
 
-        {/* Score Card */}
-        <ScoreCard score={data.score_overall} />
+        {/* Score Card + Indicator Grid */}
+        <div className="audit-report-top">
+          <div className="audit-report-score-wrapper">
+            <ScoreCard score={data.score_overall} />
+          </div>
+          <IndicatorGrid
+            indicators={data.indicators}
+            onSelectIndicator={setSelectedIndicator}
+          />
+        </div>
 
-        {/* Indicator Grid */}
-        <IndicatorGrid
-          indicators={data.indicators}
-          onSelectIndicator={setSelectedIndicator}
-        />
+        {/* Top Problems + Download Panel */}
+        <div className="audit-report-bottom">
+          <TopProblems actionPlan={data.action_plan} />
+          <DownloadPanel
+            auditId={data.audit_id}
+            domain={data.domain}
+            score={data.score_overall}
+          />
+        </div>
 
         {/* Modal */}
         {selectedIndicator && (
@@ -38,7 +52,9 @@ function AuditReport({ data, onNewAudit }) {
 
         {/* Footer */}
         <div className="audit-report-footer">
-          <p>📅 Auditoría completada: {new Date().toLocaleDateString('es-ES')}</p>
+          <p>
+            📅 Auditoría completada: {new Date().toLocaleDateString("es-ES")}
+          </p>
         </div>
       </div>
     </div>

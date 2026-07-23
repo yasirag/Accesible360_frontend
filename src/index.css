@@ -1,26 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;900&display=swap');
+@import './styles/colors.css';
 
-/* Paleta Global */
 :root {
-  /* Primarios */
-  --color-primary: #004AC6;        /* Azul */
-  --color-accent: #FFC107;         /* Amarillo */
-  
-  /* Por indicador */
-  --color-forms: #16A34A;          /* Verde */
-  --color-links: #CA8A04;          /* Amarillo oscuro */
-  --color-headings: #CA8A04;       /* Amarillo oscuro */
-  
-  /* Severidad */
-  --color-critical: #BA1A1A;       /* Rojo */
-  --color-serious: #EAB308;        /* Amarillo */
-  --color-medium: #EAB308;         /* Amarillo */
-  
-  /* Neutral */
-  --color-background: #FAF8FF;     /* Gris muy claro */
-  --color-border: #C3C6D7;         /* Gris */
-  --color-text: #131B2E;           /* Gris oscuro */
-  --color-text-secondary: #434655; /* Gris medio */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* Border */
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+
+  /* Shadows */
+  --shadow-sm: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0px 4px 6px -4px rgba(0, 0, 0, 0.10), 0px 10px 15px -3px rgba(0, 0, 0, 0.10);
+
+  /* Layout */
+  --max-width-desktop: 1200px;
+  --padding-horizontal: 64px
 }
 
 * {
