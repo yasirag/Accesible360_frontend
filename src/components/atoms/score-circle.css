@@ -4,13 +4,14 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 6px solid;
+  border: 20px solid #DAE2FD;
+  background-color: white;
   flex-shrink: 0;
 }
 
 .score-circle--large {
-  width: 140px;
-  height: 140px;
+  width: 256px;
+  height: 256px;
 }
 
 .score-circle--medium {
@@ -19,13 +20,42 @@
 }
 
 .score-circle__number {
-  font-size: 3em;
+  font-size: 96px;
   font-weight: 900;
-  line-height: 1;
+  line-height: 96px;
+  color: var(--color-text);
+  margin: 0;
 }
 
 .score-circle__label {
-  font-size: 1.2em;
-  opacity: 0.7;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--color-text-secondary);
   margin-top: 5px;
+}
+
+/* Variantes de color */
+.score-circle--success {
+  border-color: var(--color-forms);
+}
+
+.score-circle--success .score-circle__number {
+  color: var(--color-forms);
+}
+
+.score-circle--warning {
+  border-color: var(--color-links);
+}
+
+.score-circle--warning .score-circle__number {
+  color: var(--color-links);
+}
+
+.score-circle--critical {
+  border-color: var(--color-critical);
+}
+
+.score-circle--critical .score-circle__number {
+  color: var(--color-critical);
 }
