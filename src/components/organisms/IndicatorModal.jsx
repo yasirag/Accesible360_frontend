@@ -21,16 +21,54 @@ function IndicatorModal({ indicatorKey, indicator, onClose }) {
 
     if (typeof element === 'object' && element !== null) {
       return (
-        <li key={idx}>
-          <div className="element-item">
+        <li key={idx} className="element-item-detailed">
+          <div className="element-header">
             {element.type && <strong className="element-type">{element.type}</strong>}
             {element.issue && <p className="element-issue">{element.issue}</p>}
-            {element.severity && (
-              <span className={`element-severity severity-${element.severity}`}>
-                {element.severity}
-              </span>
+          </div>
+
+          <div className="element-location">
+            {element.id && element.id !== 'sin-id' && (
+              <div className="location-item">
+                <strong>ID:</strong>
+                <code>{element.id}</code>
+              </div>
+            )}
+
+            {element.name && (
+              <div className="location-item">
+                <strong>Name:</strong>
+                <code>{element.name}</code>
+              </div>
+            )}
+
+            {element.href && (
+              <div className="location-item">
+                <strong>URL:</strong>
+                <code>{element.href}</code>
+              </div>
+            )}
+
+            {element.text && (
+              <div className="location-item">
+                <strong>Texto:</strong>
+                <code>{element.text}</code>
+              </div>
+            )}
+
+            {element.html && (
+              <div className="location-item html-item">
+                <strong>HTML:</strong>
+                <code className="html-code">{element.html}</code>
+              </div>
             )}
           </div>
+
+          {element.severity && (
+            <span className={`element-severity severity-${element.severity}`}>
+              {element.severity}
+            </span>
+          )}
         </li>
       );
     }
@@ -68,6 +106,7 @@ function IndicatorModal({ indicatorKey, indicator, onClose }) {
         {hasElements ? (
           <div className="modal-section">
             <h3>Elementos Afectados ({indicator.elements.length})</h3>
+            <p className="elements-info">Haz clic en cada elemento para ver su ubicación exacta en la página:</p>
             <ul className="elements-list">
               {indicator.elements.slice(0, 5).map((element, idx) => renderElement(element, idx))}
               {indicator.elements.length > 5 && (
