@@ -1,16 +1,105 @@
-# React + Vite
+# Accesible360 - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interfaz web para auditar accesibilidad. Ingresa una URL, obtén resultados en 30 segundos y descarga un reporte PDF.
 
-Currently, two official plugins are available:
+## 🚀 Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 18** | Vite | Tailwind CSS
+- **API:** FastAPI backend (localhost:8000 o staging)
+- **Build:** 590ms (optimized)
 
-## React Compiler
+## ⚙️ Setup Local (5 min)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+# 1. Clonar
+git clone https://github.com/yasirag/Accesible360_frontend
+cd Accesible360_frontend
 
-## Expanding the ESLint configuration
+# 2. Instalar
+npm install
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# 3. Variables de entorno (.env.local)
+echo "VITE_API_URL=http://localhost:8000/api/v1" > .env.local
+
+# 4. Ejecutar
+npm run dev
+```
+
+Abierto en: http://localhost:5173
+
+## 📋 Características
+
+### Landing Page
+- Entra URL (ej: ejemplo.com)
+- Click "Auditar"
+
+### Results Page
+- Score 0-100 (rojo/amarillo/verde)
+- 3 indicadores: Formularios, Encabezados, Enlaces
+- Tabla resumen con número de violaciones
+
+### Detalles de Errores
+- Click en card → abre modal overlay
+- Muestra: ubicación exacta (ID, Name, URL, HTML)
+- Máximo 10 elementos por indicador
+
+### Descargar PDF
+- Botón con nombre dinámico: `Auditoria_ejemplo.com_2026-07-25.pdf`
+- Incluye: página 1 (resumen) + página 2 (fallos detallados)
+
+### Enviar por Email
+- Checkbox "Enviar copia a mi correo"
+- Abre modal con validación de email
+- POST `/audits/{id}/send-email` → BD
+
+## 🧪 Tests
+
+```bash
+npm test
+
+# Resultado: 21 tests pasando ✅
+```
+
+## 🚀 Build Producción
+
+```bash
+npm run build
+
+# Output: dist/
+```
+
+## 🐳 Deploy (Vercel)
+
+1. Conectar repo a Vercel
+2. Configurar variable de entorno: `VITE_API_URL=https://api.produccion.com`
+3. Deploy automático en push
+
+## 📊 Estructura
+
+src/
+├─ pages/ (Landing, AuditReport)
+├─ components/
+│ ├─ molecules/ (EmailForm, IndicatorCard)
+│ └─ organisms/ (EmailModal, IndicatorModal, DownloadPanel)
+├─ utils/ (validations, scoring)
+└─ styles/ (global.css, componentes.css)
+
+
+## 🎯 MVP Scope
+
+✅ Landing con input URL  
+✅ Auditoría en vivo  
+✅ Resultados con 3 indicadores  
+✅ Modal con ubicación de errores  
+✅ Descarga PDF  
+✅ Envío por email
+
+## 👨‍💻 Autor
+
+Arisay - Junior Developer  
+Factoría F5 - Internship Program  
+Madrid, Julio 2026
+
+---
+
+**¿Quieres contribuir? Pull requests bienvenidos**

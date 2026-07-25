@@ -39,7 +39,6 @@ function DownloadPanel({ auditId, domain, score }) {
           </div>
         </div>
 
-        {/* Included Info */}
         <div className="download-panel__included">
           <h4>Incluido en este informe:</h4>
           <ul>
@@ -58,7 +57,6 @@ function DownloadPanel({ auditId, domain, score }) {
           ⬇️ {isDownloading ? 'Descargando...' : 'Descargar PDF'}
         </button>
 
-        {/* Email Checkbox */}
         <div className="download-panel__email">
           <input
             type="checkbox"
@@ -76,7 +74,6 @@ function DownloadPanel({ auditId, domain, score }) {
         </p>
       </div>
 
-      {/* Email Modal */}
       {showEmailModal && (
         <EmailModal
           auditId={auditId}
