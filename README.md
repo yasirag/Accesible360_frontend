@@ -4,7 +4,7 @@ Interfaz web para auditar accesibilidad. Ingresa una URL, obtén resultados en 3
 
 ## 🚀 Stack
 
-- **React 18** | Vite | Tailwind CSS
+- **React 18** | Vite | CSS Puro
 - **API:** FastAPI backend (localhost:8000 o staging)
 - **Build:** 590ms (optimized)
 
