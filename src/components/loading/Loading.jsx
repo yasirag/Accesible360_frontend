@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './Loading.css';
+import './loading.css';
 
 function Loading() {
   const [progress, setProgress] = useState(0);

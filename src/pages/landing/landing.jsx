@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './Landing.css';
+import './landing.css';
 
 function Landing({ onAudit, error }) {
   const [domain, setDomain] = useState('');
