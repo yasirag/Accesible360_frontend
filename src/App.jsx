@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Landing from "./pages/landing/landing";
-import Loading from "./components/loading/loading";
+import Loading from "./components/loading/Loading";
 import AuditReport from "./pages/auditReport/AuditReport";
-import Header from "./components/header/header";
+import Header from "./components/header/Header";
 import "./App.css";
 
 function App() {
@@ -47,7 +47,7 @@ function App() {
           data={auditData}
           onNewAudit={() => {
             setScreen("landing");
-            setAuditData(null); // ← Limpiar datos
+            setAuditData(null);
             setError(null);
           }}
         />

@@ -20,7 +20,7 @@ function AuditReport({ data, onNewAudit }) {
           </button>
         </div>
 
-        {/* Score Card + Indicator Grid */}
+     
         <div className="audit-report-top">
           <div className="audit-report-score-wrapper">
             <ScoreCard score={data.score_overall} />
@@ -31,7 +31,7 @@ function AuditReport({ data, onNewAudit }) {
           />
         </div>
 
-        {/* Top Problems + Download Panel */}
+      
         <div className="audit-report-bottom">
           <TopProblems actionPlan={data.action_plan} />
           <DownloadPanel
@@ -41,7 +41,7 @@ function AuditReport({ data, onNewAudit }) {
           />
         </div>
 
-        {/* Modal */}
+     
         {selectedIndicator && (
           <IndicatorModal
             indicatorKey={selectedIndicator}
@@ -50,7 +50,7 @@ function AuditReport({ data, onNewAudit }) {
           />
         )}
 
-        {/* Footer */}
+       
         <div className="audit-report-footer">
           <p>
             📅 Auditoría completada: {new Date().toLocaleDateString("es-ES")}

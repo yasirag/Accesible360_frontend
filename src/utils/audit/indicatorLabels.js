@@ -3,19 +3,19 @@ export const INDICATOR_LABELS = {
     name: 'Formularios', 
     icon: '📝', 
     severity: 'success', 
-    color: '#16A34A'           /* Revertir a hex */
+    color: '#16A34A'         
   },
   headings: { 
     name: 'Encabezados', 
     icon: '📋', 
     severity: 'warning', 
-    color: '#CA8A04'           /* Revertir a hex */
+    color: '#CA8A04'           
   },
   links: { 
     name: 'Enlaces', 
     icon: '🔗', 
     severity: 'warning', 
-    color: '#CA8A04'           /* Revertir a hex */
+    color: '#CA8A04'      
   },
 };
 
