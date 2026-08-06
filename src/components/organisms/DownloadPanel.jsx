@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import EmailModal from './EmailModal';
-import { downloadPDF } from './services/apiClient';
+import { downloadPDF } from "../../services/apiClient";
 import './download-panel.css';
 
 function DownloadPanel({ auditId, domain, score }) {

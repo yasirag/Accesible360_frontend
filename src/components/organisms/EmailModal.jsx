@@ -1,6 +1,6 @@
 import { useState } from "react";
 import EmailForm from "../molecules/EmailForm";
-import { sendEmail } from "../services/apiClient";
+import { sendEmail } from "../../services/apiClient";
 import { validateEmail } from "../../utils/validators";
 import "./email-modal.css";
 
