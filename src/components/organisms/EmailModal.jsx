@@ -1,5 +1,7 @@
 import { useState } from "react";
 import EmailForm from "../molecules/EmailForm";
+import { sendEmail } from "../services/apiClient";
+import { validateEmail } from "../../utils/validators";
 import "./email-modal.css";
 
 function EmailModal({ auditId, onClose, onSuccess }) {
@@ -8,33 +10,30 @@ function EmailModal({ auditId, onClose, onSuccess }) {
   const [messageType, setMessageType] = useState(""); // 'success' | 'error'
 
   const handleSubmit = async (email) => {
+
+    const validation = validateEmail(email);
+    if (!validation.isValid) {
+      setMessageType("error");
+      setMessage(`${validation.error}`);
+      return;
+    }
+
     setIsLoading(true);
     setMessage("");
 
     try {
-      const response = await fetch(
-        `http://localhost:8000/api/v1/audits/${auditId}/send-email`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email }),
-        },
-      );
-
-      if (!response.ok) {
-        throw new Error("Error al enviar email");
-      }
+      // Usar servicio centralizado
+      await sendEmail(auditId, email);
 
       setMessageType("success");
       setMessage("✅ Email enviado correctamente");
 
-      // Cerrar modal después de 2 segundos
       setTimeout(() => {
         onSuccess?.();
         onClose();
       }, 2000);
     } catch (err) {
-      console.error("Error:", err);
+      console.error("Error enviando email:", err);
       setMessageType("error");
       setMessage("❌ Error al enviar email. Intenta nuevamente.");
     } finally {

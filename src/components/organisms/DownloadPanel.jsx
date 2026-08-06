@@ -1,27 +1,32 @@
 import { useState } from 'react';
 import EmailModal from './EmailModal';
+import { downloadPDF } from './services/apiClient';
 import './download-panel.css';
 
 function DownloadPanel({ auditId, domain, score }) {
   const [isDownloading, setIsDownloading] = useState(false);
   const [showEmailModal, setShowEmailModal] = useState(false);
+  const [downloadError, setDownloadError] = useState(null);
 
   const handleDownload = async () => {
     setIsDownloading(true);
+    setDownloadError(null);
+
     try {
-      const response = await fetch(
-        `http://localhost:8000/api/v1/audits/${auditId}/pdf`
-      );
-      const blob = await response.blob();
+      const blob = await downloadPDF(auditId);
+      
+      // Crear descarga
       const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `Auditoria_${domain.replace(/\./g, '_')}.pdf`;
-      a.click();
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `Auditoria_${domain.replace(/\./g, '_')}.pdf`;
+      link.click();
+      
+      // Limpiar
       window.URL.revokeObjectURL(url);
     } catch (err) {
       console.error('Error descargando PDF:', err);
-      alert('Error al descargar el PDF');
+      setDownloadError('Error al descargar el PDF. Intenta de nuevo.');
     } finally {
       setIsDownloading(false);
     }
@@ -47,6 +52,13 @@ function DownloadPanel({ auditId, domain, score }) {
             <li>✓ Plan de acción para optimización</li>
           </ul>
         </div>
+
+        {/* Error Message */}
+        {downloadError && (
+          <div className="download-panel__error">
+            ⚠️ {downloadError}
+          </div>
+        )}
 
         {/* Download Button */}
         <button

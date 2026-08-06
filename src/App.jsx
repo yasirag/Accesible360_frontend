@@ -3,6 +3,7 @@ import Landing from "./pages/landing/landing";
 import Loading from "./components/loading/Loading";
 import AuditReport from "./pages/auditReport/AuditReport";
 import Header from "./components/header/Header";
+import { createAudit } from "./services/apiClient";
 import "./App.css";
 
 function App() {
@@ -15,19 +16,9 @@ function App() {
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:8000/api/v1/audits", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ domain }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Error en la auditoría");
-      }
-
-      const data = await response.json();
+      // createAudit ya retorna data JSON (no response object)
+      const data = await createAudit(domain);
+      
       setAuditData(data);
       setScreen("results");
     } catch (err) {

@@ -1,40 +1,24 @@
 import { useState } from 'react';
+import { validateDomain, normalizeDomain } from '../../utils/validators';
 import './landing.css';
 
 function Landing({ onAudit, error }) {
   const [domain, setDomain] = useState('');
   const [inputError, setInputError] = useState('');
 
-  const validateDomain = (value) => {
-    if (!value) {
-      setInputError('Ingresa una URL');
-      return false;
-    }
-
-   
-    const urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
-    if (!urlPattern.test(value)) {
-      setInputError('La URL no es válida. Usa https://ejemplo.com');
-      return false;
-    }
-
-    setInputError('');
-    return true;
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!validateDomain(domain)) {
+    const validation = validateDomain(domain);
+    
+    if (!validation.isValid) {
+      setInputError(validation.error);
       return;
     }
 
-   
-    let fullDomain = domain;
-    if (!domain.startsWith('http')) {
-      fullDomain = `https://${domain}`;
-    }
+    const fullDomain = normalizeDomain(domain);
 
+    setInputError('');
     onAudit(fullDomain);
   };
 
@@ -78,7 +62,6 @@ function Landing({ onAudit, error }) {
             <li>✅ Enlaces descriptivos</li>
             <li>✅ Etiquetas de formularios</li>
             <li>✅ Jerarquía de encabezados</li>
-            
           </ul>
         </div>
       </div>
